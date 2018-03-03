@@ -1,0 +1,65 @@
+<view>
+  <view class='page'>
+
+    <view class='page_hd'>
+      {{MerName}}
+    </view>
+    <view class='page_bd'>
+      <view class='title'>收款金额</view>
+      <view class='input_group'>
+        <view class='input_lable'>￥</view>
+        <view class='input_main'> {{TotalAmt}}
+          <text class='line'>|</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='foot'>
+
+    <!--第1行-->
+    <view class="weui-flex">
+      <block wx:for="{{firstCol}}" wx:key="firstCol" wx:for-item="firstColItem">
+        <view class="weui-flex__item">
+          <view class="placeholder" wx:if="{{firstColItem.length>1}}" data-del="delete" catchtap='delete'>
+            <image src='{{firstColItem}}'></image>
+          </view>
+          <view class="placeholder" wx:else catchtap='setTotalAmt' data-Num="{{firstColItem}}">{{firstColItem}}</view>
+        </view>
+      </block>
+    </view>
+
+    <!--第2行-->
+    <view class="weui-flex">
+      <block wx:for="{{secondCol}}" wx:key="secondCol" wx:for-item="secondColItem">
+        <view class="weui-flex__item">
+          <view class="placeholder receipt" wx:if="{{secondColItem.length>1}}" catchtap='{{secondColItem}}'>{{secondColItem}}</view>
+          <view class="placeholder" wx:else catchtap='setTotalAmt' data-Num="{{secondColItem}}">{{secondColItem}}</view>
+        </view>
+      </block>
+    </view>
+
+    <!--第3行-->
+    <view class="weui-flex">
+      <block wx:for="{{thirdCol}}" wx:key="thirdCol" wx:for-item="thirdColItem">
+        <view class="weui-flex__item">
+
+          <view class="placeholder receipt" wx:if="{{thirdColItem.length>1}}" catchtap='{{thirdColItem}}' style="color:white">收款</view>
+          <view class="placeholder" wx:else catchtap='setTotalAmt' data-Num="{{thirdColItem}}">{{thirdColItem}}</view>
+        </view>
+      </block>
+    </view>
+
+    <!--第4行-->
+    <view class="container">
+      <view class="container-item" catchtap='setTotalAmt' data-Num="0">
+        <view class="placeholder fill-item">0</view>
+      </view>
+      <view class="container-item">
+        <view class="placeholder item point" catchtap='setTotalAmt' data-Num=".">.</view>
+        <view class="placeholder item receipt" catchtap='done' data-done="done" style='  border-bottom: 2rpx solid rgb(242, 102, 59);'>收款</view>
+      </view>
+    </view>
+    <audio hidden='true' id="myAudio" bindended='endVoice'></audio>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/menu/menu",
+    "pages/precreate/precreate",
+    "pages/authlogin/authlogin",
+    "pages/create/create",
+    "pages/receipts/receipts",
+    "pages/receipts/receipt_detail/receipt_detail",
+    "pages/precreate/precreate_detail/precreate_detail",
+    "pages/purse/purse",
+    "pages/purse/purse_detail/purse_detail",
+    "pages/present/present"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF784F",
+    "navigationBarTitleText": "订点收银台",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false
+  }
+}

@@ -1,0 +1,33 @@
+<!--pages/userlogin/userlogin.wxml-->
+
+<view class="page">
+
+  <!--logo-->
+  <view class="login_logo">
+    <image src='{{Logo}}'></image>
+  </view>
+  <!--title-->
+  <view class="login_title">
+    <text>用户名+密码登录</text>
+  </view>
+  <!--表单-->
+  <form bindsubmit="formSubmit" class="login_form">
+    <block wx:for="{{InputGroup}}" wx:key="InputGroup" wx:for-item="GroupItem">
+      <view class='input_group weui-cell weui-cell_input weui-cell_vcode'>
+        <view class='input_lable'>
+          <image class='login_icon' src="{{GroupItem.ImgSrc}}"></image>
+        </view>
+        <view class='input_bd weui-cell__bd'>
+          <input class='input_main' placeholder="{{GroupItem.Placeholder}}" name="{{GroupItem.Name}}" value='{{GroupItem.DefaultValue}}' bindblur="validate" type="{{GroupItem.InputType}}" data-name="{{GroupItem.Name}}" data-validator="required,{{GroupItem.Name}}" password='{{GroupItem.IsPwd}}'></input>
+        </view>
+      </view>
+    </block>
+    <view class="login_switch">
+      <text catchtap='switchLogin'>用手机+验证码登录</text>
+    </view>
+    <view class='btn-area'>
+      <button formType="submit" hover-class="btn-hover" hover-start-time="20">登录</button>
+    </view>
+  </form>
+  <!--<text wx:if="{{form.$invalidMsg}}">{{form.$invalidMsg}}</text>-->
+</view>

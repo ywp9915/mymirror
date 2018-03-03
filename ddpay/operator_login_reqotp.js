@@ -1,0 +1,77 @@
+const LoginAgw = require('./../base/head_agw.js');
+const Config = require('../config.js')
+const Common = require('./../base/common.js');
+const WxRequest = require('./../wx/wx_request.js');
+class LoginReqOtp extends LoginAgw {
+  constructor(Body) {
+    super()
+    let Mobile = Body.Mobile;
+    let MerCode = Body.MerCode;
+
+    this.AgwBody = {
+      "login_type": 'WXMS',
+      "mercode": MerCode,
+      "mobile": Mobile
+    }
+
+    this.AgwHead.msg_code = "ddpay_operator_login_reqotp";
+    this.AgwHead.mercode = MerCode
+    let Signature = Common.setSignature(this.AgwHead, this.AgwBody);
+    this.AgwHead.signature = Signature;
+  }
+
+  // setTime(Page) {
+
+  //   let that = this;
+  //   if (Page.data.countdown == 0) {
+  //     Page.setData({
+  //       is_hidden: true,
+  //       countdown: 60
+  //     })
+
+  //     return
+  //   } else {
+
+  //     Page.setData({
+  //       is_hidden: false,
+  //       countdown: Page.data.countdown
+  //     })
+
+  //     Page.data.countdown--;
+
+  //   }
+  //   setTimeout(function () {
+  //     that.setTime(Page)
+  //   }
+  //     , 1000)
+
+  // }
+
+  reqLoginReqOtp(Page) {
+    let that = this;
+    // let Now = new Date().getTime();
+    // let StopTime = wx.getStorageSync("countdown");
+
+    new Promise((resolve, reject) => {
+
+      WxRequest(that, resolve, reject)
+
+    })
+      .then((LoginReqOtpResBody) => {
+        console.log("page")
+        Common.setCountDown(Page);
+        // that.setTime(Page,StopTime);
+      })
+      .catch((err) => {
+
+        Page.setData({
+          "err": JSON.stringify(err)
+        })
+      })
+  }
+
+}
+
+
+
+module.exports = LoginReqOtp

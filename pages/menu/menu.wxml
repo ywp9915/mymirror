@@ -1,0 +1,48 @@
+<!--pages/detail/detail.wxml-->
+<view class="page">
+  <!-header-->
+  <view class="page_hd">
+    <view class="page_title">今日{{name}}收款{{count}}笔，合计</view>
+    <view class="page_money">
+
+       <view  class='money'>
+        ￥{{money_amount}}
+        <view class="reload" catchtap='reload'>
+          <image src='../../resource/image/reloadMoney.png'>
+        </image>
+       </view>
+       </view>
+      <!-- <view style='font-size:38rpx;display:inline-block'>10.00</view>  -->
+    </view>
+  </view>
+  <!-body-->
+
+  <view class="page_bd">
+    <view class="items_hd">
+
+      <view class="weui-flex_item item_first" style='border-right:1px solid rgb(255, 188, 167)' catchtap='getOrderList'>
+        <image src='{{receipts}}'></image>
+        <view class="placeholder">收款纪录</view>
+      </view>
+
+      <view class="weui-flex_item item_first" catchtap='loginout'>
+        <image src='{{form}}'></image>
+        <view class="placeholder">退出</view>
+      </view>
+
+    </view>
+
+
+     <view class="item_second">
+    </view> 
+  <view class='menu'>
+    <view wx:for="{{funList}}" wx:key="funList" class='weui-flex' style='background-color:white'>
+      <navigator wx:for="{{item}}" wx:key="item" class='weui-flex_item item_special border_special' catchtap='{{item.operation}}' url='{{item.navigateurl}}'>
+        <image src='{{item.img_url}}'></image>
+        <view class="placeholder">{{item.name}}</view>
+      </navigator>
+    </view>
+</view>
+
+  </view>
+</view>

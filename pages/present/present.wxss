@@ -1,0 +1,63 @@
+page {
+  background:#f6f6f6;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Bold;
+}
+
+.page{
+  display: flex;
+  flex-direction: column;
+  margin:0 27rpx;
+}
+
+.present-box{
+  display: flex;
+  justify-content:space-between;
+  height:198rpx;
+  width:100%;
+  border-radius:15rpx;
+  margin:29rpx 0; 
+  background:#fff;
+}
+.present-info{
+  padding-left:28rpx;
+}
+.present-info .card-account{
+  margin-top:38rpx;
+}
+.present-info .serial-number{
+  margin:18rpx 0;
+}
+.present-info .info{
+  font-size:24rpx;
+  color:#a6a6a6;
+}
+.present-state{
+  text-align:center;
+  margin-right:21rpx;
+  padding-top:50rpx;
+  color:#fe6030;
+}
+.present-state .state{
+  width:135rpx;
+  height:45rpx;
+  margin:18rpx auto 0 auto;
+  border-radius:8rpx;
+  color:#fff;
+}
+.present-state .s0{
+  background:#aaaaaa;
+}
+.present-state .s1{
+  background:#f09135;
+}
+.present-state .s2{
+  background:#1dcb4a;
+}
+.present-state .s3{
+  background:#3791f4;
+}
+.present-state .s4{
+  background:#e63333;
+}
+

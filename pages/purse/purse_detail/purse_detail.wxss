@@ -1,0 +1,44 @@
+page {
+    background:rgb(246, 246, 246);
+    font-size: 30rpx;
+    font-family: PingFang-SC-Bold;
+}
+.detail-box{
+    padding:0 28rpx;
+    margin:20rpx 0;
+    border-top:1rpx solid #e0e0e0;
+    border-bottom:1rpx solid #e0e0e0;
+    background: #fff;
+}
+.detail-box .type-items{
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    height:84rpx;
+    line-height: 84rpx;
+    border-bottom:1px solid #e0e0e0;
+}
+.detail-box .type-items:last-of-type{
+    border-bottom:none;
+}
+.type-items .type-value{
+    color:#7b7b7b;
+}
+.explain-title , .explain{
+    padding:0 28rpx;
+    color:#7b7b7b;
+
+}
+.explain-title {
+    line-height:50rpx;
+}
+.explain{
+    text-align: justify;
+}
+.type-items .plus{
+    color:#FF784F;
+}
+.type-items .minus{
+    color:#3aa0ff;
+}

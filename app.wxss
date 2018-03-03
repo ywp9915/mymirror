@@ -1,0 +1,39 @@
+/**app.wxss**/
+   /* @import './weui.wxss';    */
+
+page{
+   
+    font-size: 16px;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.page__title text {
+  font-family: PingFang-SC-Medium;
+  font-size: 20px;
+  color: rgb(53, 53, 53);
+}
+.sellerIcon, .phoneIcon, .keyIcon {
+  width: 14px;
+  height: 14px;
+}
+
+ 
+ button {
+  background-color: rgb(255, 120, 79);
+  color:#FFFFFF;
+
+}  
+
+.btn-hover{
+  background-color: rgb(255, 187, 167);
+}
+
+.login-switch {
+  color: rgb(12, 146, 216);
+}
+.ad_popError{
+  width: 100%;
+  height: 100%;
+background:rgba(0, 0, 0, 0.5);
+color:red;
+}

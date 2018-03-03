@@ -1,0 +1,166 @@
+/* pages/create/create.wxss */
+
+/* @import '../../weui.wxss';     */
+
+page {
+  background-color: rgb(254, 119, 78);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.page {
+  /* margin-top: 80rpx; */
+  margin-bottom: 90rpx;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 50rpx 30rpx;
+}
+
+.page_hd {
+  padding: 34rpx 100rpx;
+  background-color: rgb(255, 241, 237);
+  color: rgb(254, 119, 78);
+  border-top-left-radius: 14rpx;
+  border-top-right-radius: 14rpx;
+  font-family: PingFang-SC-Bold;
+  font-size: 30rpx;
+}
+
+.page_bd {
+  padding: 0rpx 30rpx;
+  background-color: white;
+  /* margin-bottom: 110rpx; */
+  text-align: left;
+  height: 320rpx;
+  border-bottom-right-radius: 14rpx;
+  border-bottom-left-radius: 14rpx;
+}
+
+.title {
+  padding-top: 20rpx;
+  padding-bottom: 32rpx;
+  color: rgb(136, 136, 136);
+  font-size: 45rpx;
+  font-family: PingFang-SC-Bold;
+}
+
+.input_group {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between */
+  font-family: PingFang-SC-Bold;
+  /* color: rgb(254, 119, 78);
+  font-size: 50px; */
+}
+
+.input_lable {
+  margin-right: 24rpx;
+}
+
+.input_main {
+  height: 50px;
+  font-family: PingFang-SC-Bold;
+  color: rgb(254, 119, 78);
+  font-size: 50px;
+}
+
+.line {
+  color: black;
+  /* font-size: 50px; */
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.keyboard-tr {
+  /* display: flex;
+  flex-direction: row; *//* justify-content: space-between */
+  display: -webkit-box;
+}
+
+.keyboard-td {
+  padding: 44rpx 84rpx;
+  text-align: center;
+  font-family: PingFang-SC-Bold;
+  font-size: 60rpx;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.weui-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.weui-flex__item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.foot {
+  border: 2rpx solid rgb(242, 102, 59);
+  border-bottom: none;
+  /* z-index: 9999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto; */
+}
+
+.placeholder {
+  padding: 22rpx 30rpx;
+  text-align: center;
+  font-family: PingFang-SC-Bold;
+  font-size: 40rpx;
+  height: 2.3em;
+  line-height: 2.3em;
+  color: rgb(255, 255, 255);
+  border-right: 2rpx solid rgb(242, 102, 59);
+  border-bottom: 2rpx solid rgb(242, 102, 59);
+}
+
+image {
+  vertical-align: middle;
+  width: 76rpx;
+  height: 50rpx;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.container-item {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  /* border-bottom: none;  */
+}
+
+.fill-item {
+  width: 100%;
+}
+
+.item {
+  width: 50%;
+}
+
+.point {
+  /* border-bottom: none; */
+}
+
+.receipt {
+  color: rgb(254, 119, 78);
+  border: none;
+}

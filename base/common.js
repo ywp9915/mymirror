@@ -1,0 +1,209 @@
+const CryptoJS = require('./../resource/js/crypto-js.js');
+// const MD5 = require('./../resource/js/md5.js');
+const Config = require('../config.js')
+class Common {
+  /**
+   * @method  setTimeFormat 传入一个时间对象，返回yyyyMMddhhmmssSSS格式的时间
+   * @param time
+   * @returns {string}
+   */
+  setTimeFormat(time) {
+    let yyyy = time.getFullYear();
+    let MM = time.getMonth() + 1 < 10 ? '0' + (time.getMonth() + 1) : time.getMonth() + 1;
+    let dd = time.getDate() < 10 ? '0' + (time.getDate()) : time.getDate();
+    let hh = time.getHours() < 10 ? '0' + (time.getHours()) : time.getHours();
+    let mm = time.getMinutes() < 10 ? '0' + (time.getMinutes()) : time.getMinutes();
+    let ss = time.getSeconds() < 10 ? '0' + (time.getSeconds()) : time.getSeconds();
+    let SSS = time.getMilliseconds() < 1000 ? '0' + (time.getSeconds()) : time.getSeconds();;
+    return `${yyyy}${MM}${dd}${hh}${mm}${ss}${SSS}`;
+  }
+
+  /**
+   * 获取当前时间yyyyMMddhhmmssSSS
+   * @returns {string}
+   */
+  setCurDate() {
+    let time = new Date();
+    return this.setTimeFormat(time)
+  }
+
+
+  /**
+   * 获取当前时间yyyyMMddhhmmss
+   * @returns {string}
+   */
+  setCurTime() {
+    return this.setCurDate().slice(0, 14)
+  }
+
+  /**
+   * 获取当前时间yyyyMMdd
+   * @returns {string}
+   */
+  setCurTimeYMD() {
+    return this.setCurDate().slice(0, 8)
+  }
+
+  /**
+   * 获取前Day天的时间yyyyMMdd
+   * @param Day
+   * @returns {string}
+   */
+  setStartTimeYMD(Day) {
+    let NowTime = new Date();
+    let PreTime = new Date(NowTime.getTime() - 24 * 60 * 60 * 1000 * Day); //前Day天
+    return this.setTimeFormat(PreTime).slice(0, 8)
+
+  }
+
+
+  //N分钟后的时间戳,默认3分钟
+  setResultQueryDeadLine(N = 3) {
+    var NowTimeStamp = new Date().getTime();//转化为时间戳毫秒数
+    var DeaLine = new Date();//定义一个新时间
+    return DeaLine.setTime(NowTimeStamp + 1000 * 60 * N);//设置新时间比旧时间多N分钟
+  }
+
+  /**
+   * MD5加密
+   * @param PassWord
+   * @returns {string|*}
+   */
+  hexByMd5(PassWord) {
+    return CryptoJS.MD5(PassWord).toString();
+  }
+
+  /**
+   * 报文签名
+   * @param Head 报文头
+   * @param Body  报文体
+   * @param SignKey
+   * @returns {string|*}
+   */
+  setSignature(Head, Body, SignKey) {
+    Head = JSON.stringify(Head);
+    Body = JSON.stringify(Body);
+    let ToSignature = `head=${Head}&body=${Body}&sign_key=${Config.SIGN_KEY}`;
+    //console.log(ToSignature);
+    let Signature = CryptoJS.SHA256(ToSignature).toString();
+    return Signature;
+
+  }
+
+  /**
+   * 获取流水订单号
+   * @returns {string}
+   */
+  setOrderNo() {
+    let rand = "";
+    for (var i = 0; i < 3; i++) {
+      var r = Math.floor(Math.random() * 10);
+      rand += r;
+    }
+    return "HY_CS_WXMS_" + this.setCurTimeYMD() + rand
+  }
+
+  //检查金额格式
+  checkAmount(Amount) {
+
+    if (Amount != null && Amount != "" && Amount != "0") {
+      var exp = /^(([1-9]\d*)|\d)(\.\d{1,2})?$/;
+      if (exp.test(Amount)) {
+        console.log('金额格式对');
+        return true;
+      } else {
+        console.log('金额格式不对');
+        return false;
+      }
+    }
+    else {
+      console.log('金额不能为空或0');
+      return false;
+    }
+
+  }
+
+  //二维码页金额格式
+  fomatAmount(Amount) {
+    Amount = Amount.toString();
+    let pointIndex = Amount.indexOf(".");
+
+    switch (pointIndex) {
+      case -1:
+
+        return Amount += '.00';
+        break;
+      default:
+
+        if (Amount.slice(pointIndex + 1).length == 1) {
+
+          return Amount += '0';
+        }
+        else {
+          return Amount;
+        }
+
+    }
+  }
+
+
+  setCountDown(Page) {
+
+    let StopTime = wx.getStorageSync("countdown");
+    let Now = new Date().getTime();
+    let IsHidden;
+
+
+    let that = this;
+    if (Now >= StopTime) {
+      wx.setStorageSync("IsHidden", false);
+      IsHidden = wx.getStorageSync("IsHidden");
+      Page.setData({
+        is_hidden: IsHidden,
+
+      });
+      wx.removeStorageSync("countdown");
+
+      return;
+    } else {
+      wx.setStorageSync("IsHidden", true);
+      IsHidden = wx.getStorageSync("IsHidden");
+      Page.setData({
+        is_hidden: IsHidden,
+        countdown: Math.ceil((StopTime - Now) / 1000)
+      });
+
+    }
+    setTimeout(function () {
+      that.setCountDown(Page);
+    }, 1000);
+  }
+
+
+  //金额格式化
+  number_format(number, decimals, dec_point, thousands_sep) {
+    number = (number + '').replace(/[^0-9+-Ee.]/g, '');
+    let n = !isFinite(+number) ? 0 : +number,
+    prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+    sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+    dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+    toFixedFix = function (n, prec) {
+      let k = Math.pow(10, prec);
+      return '' + Math.floor(n * k) / k;
+    };
+    let sum = (prec ? toFixedFix(n, prec) : '' + Math.floor(n)).split('.');
+    let re = /(-?\d+)(\d{3})/;
+    while (re.test(sum[0])) {
+        sum[0] = sum[0].replace(re, "$1" + sep + "$2");
+    }
+    if ((sum[1] || '').length < prec) {
+        sum[1] = sum[1] || '';
+        sum[1] += new Array(prec - sum[1].length + 1).join('0');
+    }
+    return sum.join(dec);
+}
+
+
+}
+
+module.exports = new Common();

@@ -1,0 +1,88 @@
+
+<view class="page">
+    <view class="detail-box">
+        <view class="type-items">
+            <view class="type-name">
+                业务类型
+            </view>
+            <view class="type-value">
+                {{purseDetail.businessclass}}
+            </view>
+        </view>
+        <view class="type-items">
+            <view class="type-name">
+                交易金额
+            </view>
+            <view class="type-value {{purseDetail.pay_amt_type}}">
+                {{purseDetail.pay_amt}}
+            </view>
+        </view>
+        <view class="type-items">
+            <view class="type-name">
+                交易币种
+            </view>
+            <view class="type-value">
+                {{purseDetail.curr_code}}
+            </view>
+        </view>
+    </view>
+
+    <view class="detail-box">
+        <view class="type-items">
+            <view class="type-name">
+                渠道
+            </view>
+            <view class="type-value">
+                {{purseDetail.channel}}
+            </view>
+        </view>
+        <view class="type-items">
+            <view class="type-name">
+                业务流水号
+            </view>
+            <view class="type-value">
+                {{purseDetail.main_blotterno}}
+            </view>
+        </view>
+        <view class="type-items">
+            <view class="type-name">
+                支付流水号
+            </view>
+            <view class="type-value">
+                HL01LP100000000000000000000
+            </view>
+        </view>
+        <view class="type-items">
+            <view class="type-name">
+                时间
+            </view>
+            <view class="type-value">
+                {{purseDetail.purse_time}}
+            </view>
+        </view>
+    </view>    
+    <view class="detail-box">
+        <view class="type-items">
+            <view class="type-name">
+                业务代码
+            </view>
+            <view class="type-value">
+                {{purseDetail.businesscode}}
+            </view>
+        </view>
+        <view class="type-items">
+            <view class="type-name">
+                备注
+            </view>
+            <view class="type-value">
+                {{purseDetail.digest}}
+            </view>
+        </view>
+    </view>
+    <view class="explain-title">
+        {{illustrate_type}}：
+    </view>
+    <view class="explain">
+        {{illustrate_detail}}
+    </view>
+</view>

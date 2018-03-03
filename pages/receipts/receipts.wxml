@@ -1,0 +1,43 @@
+<view class='page'>
+  <view wx:if="{{MerCountStat.length!==0}}">
+    <block wx:for="{{MerCountStat}}" wx:key="GroupKey" wx:for-item="GroupItem">
+      <view class='page_hd'>
+        <view class='order_list_date'>
+          {{GroupItem.rep_date}}
+          <!-- 2017-12-21 -->
+        </view>
+        <view class='base_record'>
+          <view class='order_count'>
+            共{{GroupItem.trans_count}}笔
+            <!-- 共5笔 -->
+          </view>
+          <view class='order_total'>
+            {{GroupItem.order_amt_count/100}}元
+            <!-- 5元 -->
+          </view>
+        </view>
+      </view>
+      <block wx:for="{{OrderList[GroupItem.rep_date]}}" wx:key="OrderKey" wx:for-item="OrderItem" wx:for-index="OrderIndex">
+        <view class='page_bd'>
+          <view class='page_bd_item {{OrderIndex==OrderList[GroupItem].length-1?"page_margin":""}}' catchtap='receiptDetail' data-OrderId="{{OrderIndex}}" data-groupId="{{GroupItem.rep_date}}">
+            <view class='list_item_hd'>
+              <view class='pay_type'>{{OrderItem.pay_type}}支付</view>
+              <view class='total_amt'>{{OrderItem.total_amt}}元</view>
+            </view>
+            <view class='list_item_ft'>
+              <view class='mercode'>收银员:
+                <text class='mercode_text'>{{OrderItem.operator}}</text>
+              </view>
+              <view class='pay_time'>{{OrderItem.pay_time_HMS}}</view>
+            </view>
+          </view>
+
+        </view>
+      </block>
+    </block>
+  </view>
+  <view wx:else class='feed'>
+    <image src='{{Feed}}'></image>
+    <view>暂无数据~</view>
+  </view>
+</view>

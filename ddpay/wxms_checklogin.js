@@ -1,0 +1,35 @@
+const LoginAgw = require('./../base/head_agw.js');
+const Config = require('../config.js')
+const Common = require('./../base/common.js');
+const WxRequest = require('./../wx/wx_request.js');
+class CheckLogin extends LoginAgw {
+  constructor(Body) {
+    super()
+    this.AgwBody = {
+      "user_type": "MER_USER",
+      "wx_code": Body.WxCode,
+      "wxms_id": "WXMS_APPID_HY_CS",
+    }
+    this.AgwHead.msg_code = "ddpay_wxms_checklogin";
+    let Signature = Common.setSignature(this.AgwHead, this.AgwBody);
+    this.AgwHead.signature = Signature;
+  }
+
+  reqCheckLogin() {
+    let that = this;
+    let CheckLoginResBody;
+    let ResultCode;
+  
+    return new Promise((resolve, reject) => {
+    
+      WxRequest(that, resolve, reject)
+     
+    })
+
+  }
+
+
+}
+
+
+module.exports = CheckLogin

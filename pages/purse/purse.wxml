@@ -1,0 +1,48 @@
+
+<view class="page">
+    <!-- 头部 -->
+    <view class="header-box">
+        <!-- 左栏 -->
+        <view class="item first">
+            <view class="amount">
+                ￥{{cashable_balance}}
+            </view>
+            <view class="title">
+                可提现余额
+            </view>
+        </view>
+        <!-- 右栏 -->
+        <view class="item">
+            <view class="amount">
+                ￥{{stop_balance}}
+            </view>
+            <view class="title">
+                待结算金额
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{purseList.length!==0}}">
+        <!-- list -->
+        <view class="list-box">
+            <block wx:for="{{purseList}}" wx:key="PurseKey" wx:for-item="PurseItem">
+                <view class="list-items"  catchtap='pruseDetail' data-PurseId="{{PurseItem}}">
+                    <view class="list-detail">
+                        <view class="type">
+                        {{PurseItem.digest}}
+                        </view>
+                        <view class="time">
+                        {{PurseItem.purse_time}}
+                        </view>
+                    </view>
+                    <view class="list-sum {{PurseItem.pay_amt_type}}">
+                    {{PurseItem.pay_amt}}
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view wx:else class='feed'>
+        <image src='{{Feed}}'></image>
+        <view>暂无数据~</view>
+    </view>
+</view>

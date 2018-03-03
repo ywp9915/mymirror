@@ -1,0 +1,20 @@
+
+<view class="page">
+  <view class="present-box">
+    <!-- 左栏 -->
+    <view class="present-info">
+      <view class="card-account">提现-到银行卡（0014）</view>
+      <view class="info serial-number">流水号：s1154425456</view>
+      <view class="info">2017年12月2日 12:00:00</view>
+    </view>
+    <!-- 右栏 -->
+    <view class="present-state">
+      <view class="sum">
+        ￥1000000.00
+      </view>
+      <view class="state fail">
+        提现失败
+      </view>
+    </view>
+  </view>
+</view>

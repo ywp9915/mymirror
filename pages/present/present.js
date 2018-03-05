@@ -33,14 +33,13 @@ Page({
         PageNum,
       }
       let GetPresentList = new GetPresentApi(op);
-      GetPresentList.reqPresent().then((data) => {
-        console.log(data);
-
+      GetPresentList.reqPresent(self).then((data) => {
+        wx.hideLoading();
       })
-        .catch((err) => {
-          console.log(err);
-          console.log('order_list err');
-        });
+      .catch((err) => {
+        console.log(err);
+        console.log('order_list err');
+      });
 
     }
      else {
@@ -92,6 +91,34 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    self = this;  
+    let OperatorInfo = wx.getStorageSync('OperatorInfo');
+    let PageNum = self.data.PageNum;
+
+    if (OperatorInfo) {
+      let op = {
+        PageNum: PageNum
+      }
+      let GetPresentList = new GetPresentApi(op);
+      GetPresentList.reqPresent(self).then((data) => {
+        wx.hideLoading();
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log('order_list err');
+      });
+
+    }else {
+      wx.clearStorageSync();
+      return wx.redirectTo({
+        url: '../login/login',
+      })
+    }
 
 
   },

@@ -45,19 +45,24 @@ page {
   border-radius:8rpx;
   color:#fff;
 }
-.present-state .s0{
-  background:#aaaaaa;
+/* 提现失败 */
+.present-state .a{
+  background-color: #e63333;
 }
-.present-state .s1{
-  background:#f09135;
+/* 未审核 */
+.present-state .b{
+  background-color: #aaa;
 }
-.present-state .s2{
-  background:#1dcb4a;
+/* 提现成功 */
+.present-state .c{
+  background-color: #3791f4;
 }
-.present-state .s3{
-  background:#3791f4;
+/* 已审核 */
+.present-state .d{
+  background-color: #f09135;
 }
-.present-state .s4{
-  background:#e63333;
+/* 已提交 */
+.present-state .e{
+  background-color: #1dcb4a;
 }
 

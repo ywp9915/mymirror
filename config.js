@@ -3,11 +3,11 @@ module.exports = {
 
   SIGN_KEY: "antsBDTANSF5NkcD3BX47d04NdyJmxiJ3+FIu3M0g8o52V3Ea8wQuF1QqSVJfh7A3zvytLIHqZc=",
 
-  MERCODE: "0200010009737",
+  MERCODE: "",
 
-  OPERATOR: "操作员01",
+  OPERATOR: "",
 
-  PASSWORD: "e10adc3949ba59abbe56e057f20f883e",
+  PASSWORD: "",
 
   URL: "https://ecocom2.dtroad.com/agw/dtmpopenapi"
 }

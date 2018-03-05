@@ -105,21 +105,19 @@ class Common {
 
   //检查金额格式
   checkAmount(Amount) {
-
-    if (Amount != null && Amount != "" && Amount != "0") {
-      var exp = /^(([1-9]\d*)|\d)(\.\d{1,2})?$/;
-      if (exp.test(Amount)) {
-        console.log('金额格式对');
-        return true;
-      } else {
-        console.log('金额格式不对');
-        return false;
+    return new Promise((resolve, reject) => {
+      if (Amount != null && Amount != "" && Amount != "0") {
+        var exp = /^(([1-9]\d*)|\d)(\.\d{1,2})?$/;
+        if (exp.test(Amount)) {
+          resolve({judge:true,message:'金额格式对'});
+        } else {
+          resolve({judge:false,message:'金额格式不对'});
+        }
       }
-    }
-    else {
-      console.log('金额不能为空或0');
-      return false;
-    }
+      else {
+        resolve({judge:false,message:'金额不能为空或0'});
+      }
+    })
 
   }
 

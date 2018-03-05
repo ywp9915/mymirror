@@ -7,7 +7,7 @@
             <view class="input_lable">金额:</view>
           </view>
           <view class="group_bd">
-            <input class="input_main" name="TotalAmt" value='' placeholder='请输入金额' type='digit' data-name="TotalAmt" data-validator="required,TotalAmt" bindblur="validate" placeholder-class='placeholder' />
+            <input class="input_main" name="TotalAmt" value='' placeholder='请输入金额' type='digit' data-name="TotalAmt" data-validator="required,TotalAmt" bindblur="validate" placeholder-class='placeholder' maxlength='7'/>
           </view>
         </view>
         <view class="input_group">

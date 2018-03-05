@@ -74,39 +74,86 @@ Page({
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
     let date = e.detail.value;
     let TotalAmt = date.TotalAmt;
-    if (Common.checkAmount(TotalAmt)) {
+    // if (Common.checkAmount(TotalAmt)) {
 
-      let ReMark = date.ReMark;
+    //   let ReMark = date.ReMark;
 
-      let Info = {
-        TotalAmt: TotalAmt * 100,
-        ReMark: ReMark
+    //   let Info = {
+    //     TotalAmt: TotalAmt * 100,
+    //     ReMark: ReMark
+    //   }
+    //   let PreCreate = new PreCreateApi(Info);
+
+    //   PreCreate.reqPreCreate()
+    //     .then((QrData) => {
+
+    //       delete QrData.result_code
+    //       delete QrData.result_msg
+    //       QrData.TotalAmt = TotalAmt
+    //       QrData.ReMark = ReMark
+
+    //       wx.setStorageSync("QrData", QrData)
+
+    //       wx.navigateTo({
+    //         url: `./precreate_detail/precreate_detail`,
+    //       })
+    //     })
+
+    //     .catch((err) => {
+    //       console.log(err)
+    //       wx.clearStorageSync();
+    //       wx.redirectTo({
+    //         url: '../login/login',
+    //       })
+    //     })
+    // }else{
+
+    // }
+    Common.checkAmount(TotalAmt).then((data) =>{
+      if(data.judge){
+        let ReMark = date.ReMark;
+        let Info = {
+          TotalAmt: TotalAmt * 100,
+          ReMark: ReMark
+        }
+        let PreCreate = new PreCreateApi(Info);
+
+        PreCreate.reqPreCreate()
+          .then((QrData) => {
+
+            delete QrData.result_code
+            delete QrData.result_msg
+            QrData.TotalAmt = TotalAmt
+            QrData.ReMark = ReMark
+
+            wx.setStorageSync("QrData", QrData)
+
+            wx.navigateTo({
+              url: `./precreate_detail/precreate_detail`,
+            })
+          })
+
+          .catch((err) => {
+            wx.showToast({
+              title: '金额格式不正确',
+              icon: 'loading',
+              image: '/resource/image/warn.png',  
+              duration: 2000,
+              mask: false
+            })
+          })
+      }else{
+        wx.showToast({
+          title: data.message,
+          icon: 'loading',
+          image: '/resource/image/warn.png',  
+          duration: 2000,
+          mask: false
+        })
       }
-      let PreCreate = new PreCreateApi(Info);
+    })
+    
 
-      PreCreate.reqPreCreate()
-        .then((QrData) => {
-
-          delete QrData.result_code
-          delete QrData.result_msg
-          QrData.TotalAmt = TotalAmt
-          QrData.ReMark = ReMark
-
-          wx.setStorageSync("QrData", QrData)
-
-          wx.navigateTo({
-            url: `./precreate_detail/precreate_detail`,
-          })
-        })
-
-        .catch((err) => {
-          console.log(err)
-          wx.clearStorageSync();
-          wx.redirectTo({
-            url: '../login/login',
-          })
-        })
-    }
 
   },
   validate: function (e) {

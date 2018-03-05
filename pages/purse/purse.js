@@ -44,8 +44,8 @@ Page({
       }
       let GetPruseSum = new GetPruseSumApi();
       GetPruseSum.reqPurseSum().then((data) => { 
-        cashable_balance = Common.number_format(parseInt(data.cashable_balance),2, ".", ",");
-        stop_balance = Common.number_format(parseInt(data.stop_balance), 2, ".", ",");
+        cashable_balance = Common.number_format(parseInt(data.cashable_balance/100),2, ".", ",");
+        stop_balance = Common.number_format(parseInt(data.stop_balance/100), 2, ".", ",");
         self.setData({
             cashable_balance:cashable_balance,
             stop_balance:stop_balance
@@ -118,7 +118,6 @@ Page({
     self = this;  
     let OperatorInfo = wx.getStorageSync('OperatorInfo');
     let PageNum = self.data.PageNum;
-    let GetPruseListRB;
 
     if (OperatorInfo) {
       let op = {

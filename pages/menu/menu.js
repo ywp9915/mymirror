@@ -48,7 +48,7 @@ Page({
           operation: 'purse'
         },
         {
-          name: '提现申请',
+          name: '提现查询',
           img_url: '../../resource/image/request.png',
           navigateurl: './../present/present',
           operation: 'present'

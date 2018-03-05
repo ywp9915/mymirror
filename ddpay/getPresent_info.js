@@ -29,11 +29,32 @@ class getPresent extends LoginAgw {
 
   reqPresent(page) {
     let that = this;
-    let OrderListArr;  //API返回order_list数据，数组
-    let OrderList;      //初次获取的order_list数据，对象	          
+    let presentListArr;  //API返回order_list数据，数组
+    let PresentList;      //初次获取的order_list数据，对象	          
 
     return new Promise((resolve, reject) => {
       WxRequest(that, resolve, reject);
+
+    }).then((presentData)=>{
+      if(page.data.presentlist && page.data.presentlist.length>0){
+        PresentList =page.data.presentlist;
+      }else{
+        PresentList = [];
+      }  
+      presentListArr = presentData.withdraw_list;
+      const state = ["b","c","d","e","a"];
+      if(presentListArr){
+        presentListArr.forEach(function (value,index) {
+          value.bill_no = value.bank_accno.substr(value.bank_accno.length-4,4);
+          value.stateColor = value.status == "-1" ? "a" : state[value.status];
+          value.pay_amt = Common.number_format(Math.abs((parseInt(value.amount)))/100,2, ".", ",");
+          PresentList.push(value);
+        });
+      }
+      page.setData({
+        "presentlist": PresentList,
+        "PageNum": page.data.PageNum + 1,
+      })
 
     });
 

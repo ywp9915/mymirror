@@ -45,11 +45,11 @@ class getPurseLlist extends LoginAgw {
         PurseListArr = purseDataList.detailRow;
         if(PurseListArr){
           PurseListArr.forEach(function (value,index) {
-            value.amount.slice(0, 1) == "+"? PurseListArr[index].pay_amt_type = "plus" : PurseListArr[index].pay_amt_type = "minus";
-            PurseListArr[index].pay_amt = `${value.amount.slice(0, 1)}${Common.number_format(Math.abs((parseInt(value.amount)))/100,2, ".", ",")}`;
-            const transtime = PurseListArr[index].transtime;
-            PurseListArr[index].purse_time = `${transtime.slice(0, 4)}-${transtime.slice(4, 6)}-${transtime.slice(6, 8)} ${transtime.slice(8, 10)}:${transtime.slice(10, 12)}:${transtime.slice(12, 14)}`;
-            PurseList.push(PurseListArr[index]);
+            value.amount.slice(0, 1) == "+"? value.pay_amt_type = "plus" : value.pay_amt_type = "minus";
+            value.pay_amt = `${value.amount.slice(0, 1)}${Common.number_format(Math.abs((parseInt(value.amount)))/100,2, ".", ",")}`;
+            const transtime = value.transtime;
+            value.purse_time = `${transtime.slice(0, 4)}-${transtime.slice(4, 6)}-${transtime.slice(6, 8)} ${transtime.slice(8, 10)}:${transtime.slice(10, 12)}:${transtime.slice(12, 14)}`;
+            PurseList.push(value);
           });
         }
 

@@ -12,7 +12,8 @@ Page({
    */
   data: {
     StopTimeout: false,
-    mer_name :" "
+    mer_name :" ",
+    status :"wait"
   },
 
   /**
@@ -125,8 +126,11 @@ Page({
 
   endVoice: function () {
     console.log("endvoice")
-    return wx.redirectTo({
-      url: '../../menu/menu',
-    })
+    // return wx.redirectTo({
+    //   url: '../../menu/menu',
+    // })
+    this.setData({
+      status :"success"
+    });
   }
 })

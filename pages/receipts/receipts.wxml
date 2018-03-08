@@ -37,7 +37,7 @@
     </block>
   </view>
   <view wx:else class='feed'>
-    <image src='{{Feed}}'></image>
-    <view>暂无数据~</view>
+      <image src='{{Feed}}'></image>
+      <view>暂无数据~</view>
   </view>
 </view>

@@ -65,4 +65,15 @@ page {
 .present-state .e{
   background-color: #1dcb4a;
 }
+.feed {
+  text-align:center;
+  font-size:26rpx;
+  color:rgb(204, 204, 204);
+}
+.feed image {
+  margin:160rpx auto 30rpx;
+  width:224rpx;
+  height:147rpx;
+}
+  
 

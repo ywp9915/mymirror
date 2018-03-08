@@ -1,16 +1,25 @@
 <view class="page">
   <view class="panel">
-    <view class="header">
-      扫描二维码向我付款
+    <view wx:if="{{status == 'wait'}}">
+      <view class="header">
+        扫描二维码向我付款
+      </view>
+      <view class='money'>￥{{QrData.TotalAmt}}</view>
+      <view class='remark'>{{QrData.ReMark}}</view>
+      <view class="qrcode">
+        <canvas canvas-id="qrcode" />
+      </view>
+      <view class='remark'>{{mer_name}}</view>
+      <audio hidden='true' id="myAudio" bindended='endVoice'></audio>
     </view>
-    <view class='money'><view class='sign'>￥</view>{{QrData.TotalAmt}}</view>
-    <view class='remark'>{{QrData.ReMark}}</view>
-    <view class="qrcode">
-      <canvas canvas-id="qrcode" />
+    <view wx:elif="{{status == 'success'}}"> 
+      <view class="header">
+        扫描二维码向我付款
+      </view>
+      <image class="c-img" src="../../../resource/image/success-icons.png" />
+      <view class='c-money'>￥{{QrData.TotalAmt}}</view>
+      <view class='c-remark'>收款备注:{{QrData.ReMark}}</view>
     </view>
-
-    <view class='remark'>{{mer_name}}</view>
-    <audio hidden='true' id="myAudio" bindended='endVoice'></audio>
   </view>
   <text wx:if="{{form.$invalidMsg}}">{{form.$invalidMsg}}</text>
 </view>

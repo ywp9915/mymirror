@@ -15,6 +15,7 @@ Page({
    */
   data: {
     "PageNum": 1,
+    "Feed": '../../resource/image/feed.png',
 
   },
 

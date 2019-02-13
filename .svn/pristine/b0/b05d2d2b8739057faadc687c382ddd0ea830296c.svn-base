@@ -1,0 +1,46 @@
+<view class="page">
+  <form bindsubmit="formSubmit" class="login_form">
+    
+    <view class='input_group weui-cell weui-cell_input weui-cell_vcode'>
+      <view class='input_lable'>
+        商户编号
+      </view>
+      <view class='input_bd weui-cell__bd'>
+        <input class='input_main' placeholder="请输入商户编号" name="MerCode" bindblur="validate" type='digit' data-name="MerCode" value='{{MerCode}}' disabled="true"></input>
+      </view>
+    </view>
+    
+    <view class='input_group weui-cell weui-cell_input weui-cell_vcode'>
+        <view class='input_lable'>
+          退款金额
+        </view>
+        <view class='input_bd weui-cell__bd'>
+          <input class='input_main' placeholder="请输入退款金额" name="RefundAmt" type='digit' data-name="RefundAmt" value='{{RefundAmt}}' bindblur="validate"  bindinput="TotalAmtInput" maxlength="10"></input>
+        </view>
+      </view>
+    <view class='input_group weui-cell weui-cell_input weui-cell_vcode'>
+      <view class='input_lable'>
+        验证码
+      </view>
+      <view class='input_bd weui-cell__bd'>
+        <input class='input_main' placeholder="请输入验证码" name="AuthKey" type='digit' bindblur="validate" data-name="AuthKey" value='{{AuthKey}}'></input>
+      </view>
+
+      <view class='auth_btn weui-vcode-btn' catchtap='getAuthKey'>
+        <button wx:if='{{!is_hidden}}'>获取验证码</button>
+        <button wx:else disabled='ture' style='border-color:rgb(170,170,170)'>{{countdown}}秒后获取</button>
+      </view>
+    </view>
+    <view class='input_group weui-cell weui-cell_input weui-cell_vcode'>
+        <view class='input_lable'>
+          退款理由
+        </view>
+        <view class='input_bd weui-cell__bd'>
+          <input class='input_main' placeholder="请填写退款理由（选填）" name="refund_reason" type='text' data-name="refund_reason" value='{{refund_reason}}' bindblur="validate"></input>
+        </view>
+      </view>
+    <view class='btn-area'>
+      <button formType="submit" hover-class="btn-hover" hover-start-time="20">{{btnText}}</button>
+    </view>
+  </form>
+</view>

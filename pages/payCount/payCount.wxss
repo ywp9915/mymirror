@@ -1,0 +1,173 @@
+page{
+    background: rgb(244,244,244);
+    padding-top: 16rpx;
+}
+.block{
+    background: #fff;
+    overflow: hidden;
+    padding: 0 24rpx;
+    position: relative;
+    border-bottom: 1rpx solid rgb(238, 238, 238);
+}
+.block .label{
+    font-family: "PingFang-SC-Medium";
+    font-size: 30rpx;
+    color: rgb(51,51,51);
+    line-height: 98rpx;
+    float: left;
+    font-weight: bold;
+}
+.count_status{
+    height: 98rpx;
+    line-height: 98rpx;
+    float: right;
+    text-align: right;
+    font-size: 28rpx;
+    color: rgb(255,152,89);
+    width: 480rpx;
+    margin-right: 28rpx;
+}
+.v_span {
+    position: absolute;
+    right: 24rpx;
+    top: 39rpx;
+    width: 12rpx;
+    height: 20rpx;
+    display: flex;
+    display: -webkit-flex;
+}
+.v_span image{
+  width: 100%;
+  height: 100%;
+}
+.searchBox{
+    background: #fff;
+    margin: 8rpx 0;
+}
+.c-nav {
+    padding: 24rpx 20rpx 24rpx 160rpx;
+    display: flex;
+    display: -webkit-flex;
+}
+.c-nav .datePicker {
+    border: 1px solid rgb(255,152,89);
+    background: rgb(248,248,248);
+    border-radius: 8rpx;
+    height: 48rpx;
+    width: 180rpx;
+    text-align: center;
+    font-size: 26rpx;
+    line-height:48rpx;
+}
+.c-nav .btn {
+    background: rgb(255,152,89);
+    border-radius: 8rpx;
+    height: 48rpx;
+    width: 120rpx;
+    margin-left: 28rpx;
+    text-align: center;
+    color: #fff;
+    border: 0;
+    -webkit-appearance: none;
+    float: right;
+    font-size: 26rpx;
+    line-height: 48rpx;
+    padding: 0;
+}
+.filter{
+    color: rgb(102,102,102);
+    font-size: 26rpx;
+    margin: 0 16rpx;
+    line-height: 48rpx;
+}
+.total{
+    overflow: hidden;
+    padding: 24rpx 0;
+    position: relative;
+}
+.total .payNum, .total .payPer{
+    width: 50%;
+    height: 108rpx;
+    float: left;
+    text-align: center;
+}
+.total .payLine{
+    position: absolute;
+    left: 50%;
+    width: 2rpx;
+    height: 108rpx;
+    background: rgb(233,233,233);
+}
+.total .amtNum, .total .amtPer{
+    color:rgb(255,152,89);
+    font-size: 34rpx;
+    line-height: 39rpx;
+    margin: 16rpx auto 20rpx;
+}
+.total .payClass{
+    color:rgb(136,136,136);
+    font-size: 24rpx;
+    line-height: 39rpx;
+}
+.payList{
+    background: #fff;
+    padding: 0 24rpx;
+    margin-bottom: 8rpx;
+}
+.payList .payList_head{
+    padding: 24rpx 0;
+    border-bottom: 1px solid rgb(238,238,238);
+    overflow: hidden;
+}
+.payList .payDate{
+    font-family: "PingFang-SC-Medium";
+    font-size: 28rpx;
+    color: rgb(68,68,68);
+    line-height: 39rpx;
+    float: left;
+    font-weight: bold;
+    position: relative;
+    padding-left: 8rpx;
+}
+.payList .payDate::before{
+    content: '';
+    background: rgb(255,152,89);
+    width: 4rpx;
+    height: 28rpx;
+    position: absolute;
+    left: 0;
+    top: 6rpx;
+}
+.payList .payClassfiy{
+    line-height: 40rpx;
+    float: right;
+    font-size: 24rpx;
+    color: rgb(255,152,89);
+}
+.payList .payInfo{
+    padding: 24rpx 0;
+    overflow: hidden;
+}
+.payInfo .amount,
+.payInfo .payed,
+.payInfo .refund {
+    width: 33%;
+    height: 80rpx;
+    float: left;
+    text-align: center;
+}
+.payInfo .payed,
+.payInfo .refund {
+    border-left: 2rpx solid rgb(233,233,233);
+}
+.payInfo .amtNum{
+    color:rgb(255,152,89);
+    font-size: 32rpx;
+    line-height: 39rpx;
+    margin: 4rpx auto 12rpx;
+}
+.payInfo .payClass{
+    color:rgb(136,136,136);
+    font-size: 22rpx;
+    line-height: 39rpx;
+}

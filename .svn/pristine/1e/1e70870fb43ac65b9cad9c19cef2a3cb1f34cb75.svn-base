@@ -1,0 +1,53 @@
+page{
+  background:rgb(244,244,244);
+}
+.box{
+	overflow: hidden;
+	background: white;
+	padding:0rpx 24rpx;
+	margin-top: 24rpx;
+}
+.block{
+	overflow: hidden;
+	padding:32rpx 0rpx 30rpx 0rpx;
+	border-bottom:1rpx solid rgb(238,238,238);
+  display: flex;
+}
+.block_title{
+	font-family: "PingFang-SC-Bold";
+	font-weight: bold;
+	color:rgb(51,51,51);
+	font-size: 28rpx;
+	vertical-align: middle;
+  margin-top:6rpx;
+}
+.block_value{
+	width: 460rpx;
+	color:rgb(51,51,51);
+	font-size: 28rpx;
+}
+.block_bottom{
+	border:none;
+}
+
+.bottom-btn{
+	width: 686rpx;
+	height: 88rpx;
+	line-height: 88rpx;
+	text-align: center;
+	border-radius: 8px;
+	color:white;
+	font-family: "PingFang-SC-Bold";
+	font-weight: bold;
+	margin:0 auto;
+	margin-top: 120rpx;
+	border:2rpx solid rgb(255,152,89);
+	background: rgb(255,152,89);
+	font-size: 28rpx;
+}
+.input{
+  font-family: "PingFang-SC-Bold";
+	font-size: 28rpx;
+	color:rgb(187,187,187);
+	font-weight: bold;
+}

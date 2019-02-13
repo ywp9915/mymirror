@@ -1,0 +1,98 @@
+/* pages/filter/index.wxss */
+
+
+/* 筛选 */
+.filterBox{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #f7f7f7;
+    z-index: 10;
+    /* display: none; */
+    overflow-y: scroll;
+    padding-bottom: 120rpx;
+    -webkit-overflow-scrolling : touch;
+}
+.filterTerm{
+    padding: 0 28rpx 0;
+    background: #fff;
+    margin-top: 18rpx;
+}
+.filterTerm .title{
+    color: #333;
+    font-size: 28rpx;
+    line-height: 90rpx;
+    font-family: PingFangSC-Medium;
+}
+.filterTerm .filterItem{
+    overflow: hidden;
+    padding-top: 6rpx;
+    position: relative;
+}
+.filterTerm .filterItem view{
+    float: left;
+    width: 228rpx;
+    height: 68rpx;
+    line-height: 68rpx;
+    color: #666;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: #f2f2f2;
+    border-radius: 8rpx;
+    margin: 0 98rpx 32rpx 0;
+    font-size: 32rpx;
+}
+.filterTerm .filterItem view.active{
+    background-color: #ff8046;
+    color: #fff;
+}
+.filterBox .filterBtn{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 98rpx;
+    line-height: 98rpx;
+    z-index: 20;
+    border-top: 1px solid #ddd;
+    overflow: hidden;
+}
+.filterBtn .reset, .filterBtn .confirm{
+    float: left;
+    width: 50%;
+    text-align: center;
+    font-size: 34rpx;
+    color: #555555;
+    background: #fff;
+}
+.filterBtn .confirm{
+    background-color: #ff8147;
+    color: #fff;
+}
+.lineTo{
+    position: absolute;
+    line-height: 68rpx;
+    top: 0;
+    left: 332rpx;
+}
+#beginBtn, #endBtn{
+    width: 320rpx;
+    font-size: 24rpx;
+    margin-right: 20rpx;
+}
+#endBtn{
+    float: right;
+    margin-right: 0;
+}
+#beginBtn .tui-picker-detail, #endBtn .tui-picker-detail{
+    width: 300rpx;
+    font-size: 28rpx;
+    padding: 0 10rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,41 @@
+page {
+  background-color: rgb(246, 246, 246);
+}
+
+.page__bd {
+  display: flex;
+  flex-direction: column;
+  -ms-flex-item-align: center;
+  text-align: center;
+}
+
+.list-item {
+  margin: 10px 0px 0px;
+  padding: 0px 15px;
+  background-color: white;
+}
+
+.mercode {
+  margin: 0px auto 10px;
+  padding: 10px 0px;
+  border-bottom: rgb(204, 204, 204) 1px solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+
+ .lable_name{
+    font-size:30rpx 
+}
+
+.order_info{
+  color: rgb(136, 136, 136);
+  font-size:30rpx;
+
+} 
+.money_cla{
+
+  color: rgb(254, 119, 78);
+  font-family: PingFang-SC-Medium;
+}

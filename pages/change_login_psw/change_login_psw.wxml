@@ -1,0 +1,8 @@
+<view class="view">
+	    <view class="block">
+			<text class="block_title">新密码：</text>
+			<input type="password" placeholder-class="input" class="block_value" placeholder="请输入6-12位数字或字母密码" maxlength="12"  bindinput="getPsw" data-name="psw"></input>
+	    </view>
+
+	    <view class="bottom-btn" bindtap="confirm">确定</view>
+	</view>

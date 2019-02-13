@@ -1,0 +1,9 @@
+<view class="view">
+    <view class="box">
+		<view class="block" wx:for="{{merList}}" wx:for-item="item" wx:key="{{index}}" data-item="{{item.mercode}}" bindtap="changeStore">
+			<view class="block_title">{{item.abname}}</view>
+			<view class="block_value">{{item.address}}</view>
+			<image class="right-arrow" src="../../resource/image/right-icon.png"></image>
+		</view>
+    </view>
+</view>

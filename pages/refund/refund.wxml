@@ -1,0 +1,28 @@
+<view class="page">
+    <view wx:if="{{refundList.length!==0}}">
+        <!-- list -->
+        <view class="list-box">
+            <block wx:for="{{refundList}}" wx:key="refundKey" wx:for-item="refundItem">
+                <view class="list-items"  catchtap='refundDetail' data-refundId="{{refundItem}}">
+                    <view>
+                        <view class="type">
+                        {{refundItem.refund_status}}
+                        </view>
+                        <view class="time">
+                        {{refundItem.create_time}}
+                        </view>
+                    </view>
+                    <view class="list-detail">
+                        <view class="list-sum {{refundItem.pay_amt_type}}">
+                        {{refundItem.user_refund_amt}}
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view wx:else class='feed'>
+        <image src='{{Feed}}'></image>
+        <view>暂无数据~</view>
+    </view>
+</view>

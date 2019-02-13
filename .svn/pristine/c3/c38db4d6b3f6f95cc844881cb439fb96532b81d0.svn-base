@@ -1,0 +1,28 @@
+
+<view class="page">
+    <view wx:if="{{presentlist.length!==0}}">
+      <block wx:for="{{presentlist}}" wx:key="presentKey" wx:for-item="presentItem">
+        <view class="present-box">
+            <!-- 左栏 -->
+            <view class="present-info">
+              <view class="card-account">提现-到银行卡（{{presentItem.bill_no}}）</view>
+              <view class="info serial-number">流水号：{{presentItem.order_no}}</view>
+              <view class="info">{{presentItem.apply_time}}</view>
+            </view>
+            <!-- 右栏 -->
+            <view class="present-state">
+              <view class="sum">
+                ￥{{presentItem.pay_amt}}
+              </view>
+              <view class="state {{presentItem.stateColor}}">
+                提现失败
+              </view>
+            </view>
+        </view>
+      </block>
+    </view>  
+    <view wx:else class='feed'>
+      <image src='{{Feed}}'></image>
+      <view>暂无数据~</view>
+    </view>
+</view>

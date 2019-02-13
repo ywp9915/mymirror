@@ -1,0 +1,26 @@
+<view class="page">
+    <view wx:if="{{accountList.length!==0}}">
+        <!-- list -->
+        <view class="list-box">
+            <block wx:for="{{accountList}}" wx:key="accountKey" wx:for-item="accountItem">
+                <view class="list-items"  catchtap='accountDetail' data-accountId="{{accountItem}}">
+                    <view class="list-detail">
+                        <view class="type">
+                        {{accountItem.cls_status}}
+                        </view>
+                        <view class="time">
+                        {{accountItem.cls_datetime}}
+                        </view>
+                    </view>
+                    <view class="list-sum">
+                    +{{accountItem.cls_amt}}
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view wx:else class='feed'>
+        <image src='{{Feed}}'></image>
+        <view>暂无数据~</view>
+    </view>
+</view>

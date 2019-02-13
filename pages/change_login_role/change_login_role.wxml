@@ -1,0 +1,13 @@
+<view class="view">
+	<view class="box">
+	    <view class="block">
+          <text class="block_title">选择岗位：</text>
+          <radio-group class="radio-group block_value" bindchange="radioChange">
+            <label class="radio" wx:for="{{roleItem}}" wx:key="item">
+                <radio value="{{item.name}}" checked="{{data.role == item.name? true : false}}"/>{{item.value}}
+            </label>
+          </radio-group>
+        </view>
+	</view>
+	<view class="bottom-btn" bindtap="confirm">确定</view>
+</view>

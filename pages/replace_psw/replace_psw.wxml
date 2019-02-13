@@ -1,0 +1,20 @@
+<view class="view">
+		<view class="box">
+		    <view class="block">
+	          <text class="block_title" decode="{{true}}">旧&nbsp;&nbsp;密&nbsp;&nbsp;码：</text>
+	          <input type="password" placeholder-class="input" class="block_value" placeholder="请输入旧密码" maxlength="12" bindinput="getInput" data-name="old_psw"></input>
+		    </view>
+
+		    <view class="block">
+	          <text class="block_title" decode="{{true}}">新&nbsp;&nbsp;密&nbsp;&nbsp;码：</text>
+	          <input type="password" placeholder-class="input" class="block_value" placeholder="请输入6-12位数字或字母密码" maxlength="12" bindinput="getInput" data-name="new_psw"></input>
+		    </view>
+
+		    <view class="block block_bottom">
+	          <text class="block_title">确认密码：</text>
+	          <input type="password" placeholder-class="input" class="block_value" placeholder="请输入6-12位数字或字母密码" maxlength="12" bindinput="getInput" data-name="confirm_psw"></input>
+		    </view>
+		 </view>
+
+	    <view class="bottom-btn" bindtap="confirm">确定修改</view>
+	</view>

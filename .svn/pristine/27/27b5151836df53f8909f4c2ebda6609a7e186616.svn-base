@@ -1,0 +1,108 @@
+
+<view class="header">
+    <view class="filter">
+        <navigator url="/pages/filter/filter?pay_class={{pay_class}}&operator_name={{operator_name}}&endTime={{endTime}}&startTime={{startTime}}">
+         筛选<image src="/resource/image/filter.png" alt=""></image>
+         </navigator>
+    </view>
+    <view class="final">
+        <view class="money"><span>￥</span>{{amount}}</view>
+        <view>
+            <view style="font-size:28rpx;display: inline-block;"> 实收金额</view>
+            <view class="isCode" hidden="{{!checkboxShow || clickType == 'tklb'}}">
+                <checkbox-group bindchange="checkboxChange">
+                    <label class="checkbox" wx:for="{{checkboxItems}}" wx:key="item">
+                        <checkbox value="{{item.name}}" checked="{{item.checked}}" class="ipt-check"/>{{item.value}}
+                    </label>
+                </checkbox-group>
+            </view>
+        </view>
+    </view>
+    <view class="sumAmt">
+        <view class="gatherAmt">
+            <view class="order_amt_count">{{order_amt_count}}</view>
+            <view>收款金额</view>
+        </view>
+        <view class="refundAmt">
+            <view class="refund_amt_count">{{refund_amt_count}}</view>
+            <view>退款金额</view>
+        </view>
+    </view>
+</view>
+<view class="tabSelect" wx:if="{{tabSelectStatus}}">
+    <view class="jymx {{clickType == 'jymx'?'tabActive':''}}" data-type="jymx" catchtap="clickJymx">
+        <image class="jymx-figure" src="/resource/image/{{clickType == 'jymx'?'jymx_active':'jymx'}}.png" alt=""></image>
+        <view class="jymx-body">交易明细</view>
+    </view>
+    <view class="tklb {{clickType == 'tklb'?'tabActive':''}}" data-type="tklb" catchtap="clickTklb">
+        <image class="tklb-figure" src="/resource/image/{{clickType == 'tklb'?'tklb_active':'tklb'}}.png" alt=""></image>
+        <view class="tklb-body">退款列表</view>
+    </view>
+</view>
+<view class="dateNum">
+    <span class="todate">{{rep_date}}</span>
+    <span class="sumNum">共 <span id="success_num">{{clickType == 'jymx'?trans_count:total}}</span> 笔</span>
+</view>
+
+<view class="gatherList"  wx:if="{{!noData}}">
+    <block wx:if="{{clickType == 'jymx'}}">
+        <view class="gather_box" wx:for="{{OrderList}}" wx:key="id" wx:for-index="OrderIndex" catchtap='orderDetail' data-OrderId="{{OrderIndex}}">
+            <view class="gatherType">
+                <image src="/resource/image/pay_zfb.png" alt="" wx:if="{{item.pay_type == '支付宝'}}"></image>
+                <image src="/resource/image/pay_wx.png" alt="" wx:elif="{{item.pay_type == '微信'}}"></image>
+                <image src="/resource/image/pay_zhimi.png" alt="" wx:else></image>
+            </view>
+            <view class="gatherinfo">
+                <view class="refund_con_l">
+                    <view class="status">{{item.pay_type}}收款</view>
+                    <view class="user" wx:if="{{item.operator == '0'}}">
+                        静态码收款
+                    </view>
+                    <view class="user" wx:else>
+                        收款账号：{{item.operator}}
+                    </view>
+                </view>
+                <view style="text-align:right;width: 50%;">
+                    <view style="position: relative;">
+                        <span class="refundHit" wx:if="{{item.refund_status != '未退款'}}">{{item.refund_status}}</span>
+                        <span class="moneyNum">￥{{item.total_amt}}</span>
+                    </view>
+                    <view class="time">{{item.pay_time_YMD}} {{item.pay_time_HMS}}</view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{!nextPage}}" class="noMoreData">已无更多数据</view>
+    </block>
+    <block wx:elif="{{clickType == 'tklb'}}">
+        <view class="gather_box" wx:for="{{OrderList}}" wx:key="id" wx:for-item="refundItem"  catchtap='refundDetail' data-refundId="{{refundItem}}">
+            <view class="gatherType">
+                <image src="/resource/image/pay_zfb.png" alt="" wx:if="{{refundItem.pay_class == '支付宝'}}"></image>
+                <image src="/resource/image/pay_wx.png" alt="" wx:elif="{{refundItem.pay_class == '微信'}}"></image>
+                <image src="/resource/image/pay_zhimi.png" alt="" wx:else></image>
+            </view>
+            <view class="gatherinfo">
+                <view class="refund_con_l">
+                    <view class="status">{{refundItem.pay_class}}退款</view>
+                    <view class="user" wx:if="{{refundItem.operator == '0'}}">
+                        商户退款
+                    </view>
+                    <view class="user" wx:else>
+                        退款账号：{{refundItem.operator}}
+                    </view>
+                </view>
+                <view class="refund_con_r">
+                    <view style="position: relative;">
+                        <span class="refundHit">{{refundItem.refund_status}}</span>
+                        <span class="moneyNum">￥-{{refundItem.user_refund_amt}}</span>
+                    </view>
+                    <view class="time refundTime">{{refundItem.create_time}}</view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{!nextPage}}" class="noMoreData">已无更多数据</view>
+    </block>
+</view>
+<view wx:else class='feed'>
+    <image src='{{Feed}}'></image>
+    <view>暂无数据~</view>
+</view>

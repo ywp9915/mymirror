@@ -1,0 +1,90 @@
+page{
+    background: rgb(244,244,244);
+    padding-top: 16rpx;
+}
+.block{
+    background: #fff;
+    overflow: hidden;
+    padding: 0 24rpx;
+    position: relative;
+    border-bottom: 1rpx solid rgb(238, 238, 238);
+}
+.block .label{
+    font-family: "PingFang-SC-Medium";
+    font-size: 30rpx;
+    color: rgb(51,51,51);
+    line-height: 98rpx;
+    float: left;
+    font-weight: bold;
+}
+.log_status{
+    height: 98rpx;
+    line-height: 98rpx;
+    float: right;
+    text-align: right;
+    font-size: 28rpx;
+    color: rgb(255,152,89);
+    width: 480rpx;
+}
+.pay_log_list{
+    background: #fff;
+    padding: 0 24rpx;
+    margin: 8rpx 0;
+}
+.pay_log_list .pay_log_list_head{
+    padding: 24rpx 0;
+    border-bottom: 1px solid rgb(238,238,238);
+    overflow: hidden;
+}
+.pay_log_list .payDate{
+    font-family: "PingFang-SC-Medium";
+    font-size: 028rpx;
+    color: rgb(68,68,68);
+    line-height: 39rpx;
+    float: left;
+    font-weight: bold;
+    position: relative;
+    padding-left: 8rpx;
+}
+.pay_log_list .payDate::before{
+    content: '';
+    background: rgb(255,152,89);
+    width: 4rpx;
+    height: 28rpx;
+    position: absolute;
+    left: 0;
+    top: 6rpx;
+}
+.pay_log_list .payClassfiy{
+    float: right;
+    font-size: 24rpx;
+    color: rgb(255,152,89);
+    width: 160rpx;
+    height: 38rpx;
+    border: 1px solid rgb(255,152,89);
+    border-radius: 8rpx;
+    text-align: center;
+    line-height: 38rpx;
+}
+.pay_log_list .status_success{
+  color:rgb(9,192,26);
+  border:1px solid rgb(9,192,26);
+}
+.pay_log_list .payLog{
+    padding: 24rpx 0;
+    overflow: hidden;
+}
+.logCon{
+    display: flex;
+    display: -webkit-flex;
+}
+.logCon view:nth-child(1){
+    width: 160rpx;
+    color: rgb(136,136,136);
+    font-size: 28rpx;
+}
+.logCon view:nth-child(2){
+    width: 540rpx;
+    font-size: 28rpx;
+    color: rgb(51,51,51);
+}

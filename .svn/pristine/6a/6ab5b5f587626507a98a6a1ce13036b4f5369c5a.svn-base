@@ -1,0 +1,111 @@
+page{
+  background:rgb(244,244,244);
+}
+.box{
+	overflow: hidden;
+	background: white;
+	padding:0rpx 24rpx;
+	margin-top: 24rpx;
+}
+.block{
+	overflow: hidden;
+	padding:32rpx 0rpx 30rpx 0rpx;
+	border-bottom:1rpx solid rgb(238,238,238);
+	height: 28rpx;
+  	line-height: 28rpx;
+}
+.block_title{
+	font-family: "PingFang-SC-Bold";
+	font-weight: bold;
+	color:rgb(51,51,51);
+	font-size: 28rpx;
+	float:left;
+}
+.block_value{
+	width: 520rpx;
+	color:rgb(51,51,51);
+	font-size: 32rpx;
+	float:right;
+	text-align: right;
+  margin-top:-12rpx;
+}
+.right_icon{
+	float:right;
+	width: 12rpx;
+	height: 20rpx;
+}
+.block_bottom{
+	border:none;
+}
+#get_code_btn{
+	float:right;
+	width: 120rpx;
+    height: 36rpx;
+	line-height: 36rpx;
+	text-align: center;
+	border-radius: 8px;
+	color:rgb(255,152,89);
+	border:0.01rpx solid rgb(255,152,89);
+	margin-top: -12rpx;
+	font-size: 22rpx;
+	padding: 12rpx;
+}
+.switch_box{
+	margin-top:16rpx;
+	padding:31rpx 24rpx;
+	background: white;
+}
+.block-right{
+	float:right;
+	margin-top: -5rpx;
+}
+.input{
+  font-family: "PingFang-SC-Bold";
+	font-size: 28rpx;
+	color:rgb(187,187,187);
+	font-weight: bold;
+}
+.bottom-btn {
+    width: 686rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    font-family: "PingFang-SC-Bold";
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 10rpx;
+    border: 2rpx solid rgb(255,152,89);
+    background: rgb(255,152,89);
+    font-size: 28rpx;
+}
+.radio{
+	margin-left: 10rpx;
+}
+.merpicker{
+	height: 60rpx;
+	line-height: 60rpx;
+}
+.scan_input{
+	float:left;
+	width: 340rpx;
+}
+.scan_btn{
+	float:right;
+	background:rgb(255,152,89);
+	color:white;
+	border-radius:12rpx;
+	width:150rpx;
+	text-align:center;
+	height:50rpx;
+	line-height:50rpx;
+	margin-top:-10rpx;
+}
+.tips{
+	padding:20rpx;
+	font-size:28rpx;
+}
+.wx-switch-input{width:75rpx !important;height:40rpx !important;}
+.wx-switch-input::before{width:75rpx !important;height: 40rpx !important;}
+.wx-switch-input::after{width: 34rpx !important;height: 34rpx !important;}

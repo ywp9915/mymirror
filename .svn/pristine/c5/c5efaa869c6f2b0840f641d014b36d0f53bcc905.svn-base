@@ -1,0 +1,10 @@
+<view class="view">
+	    <view class="tips"><text style="color:rgb(247,53,53);">*</text>为保障您的账户安全、登录方便，请重新设置密码</view>
+
+	    <view class="block">
+			<text class="block_title">新密码：</text>
+			<input placeholder-class="input" type="password" class="block_value" placeholder="请输入6-12位数字或字母密码" maxlength="12" bindinput="getPsw" data-name="psw"></input>
+	    </view>
+
+	    <view class="bottom-btn" bindtap="confirm">确定</view>
+	</view>

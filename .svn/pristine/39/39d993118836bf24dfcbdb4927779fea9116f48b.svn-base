@@ -1,0 +1,19 @@
+<view class="view">
+    <view class="box">
+		<view class="block" wx:for="{{list}}" wx:key="{{index}}" bindtap="enterDetail" data-data="{{item}}" wx:if="{{item.role !== 'MANAGER'}}">
+			<view class="block_title">{{item.operator_name}}</view>
+			<view class="block_value" wx:if="{{item.role == 'DIANZHANG'}}">岗位：店长</view>
+			<view class="block_value" wx:elif="{{item.role == 'OPERATOR'}}">岗位：收银员</view>
+			<view class="block_value" wx:elif="{{item.role == 'MANAGER'}}">岗位：老板</view>
+			<view class="right_box">
+				<text class="right_text on" wx:if="{{item.state==1}}">启用</text>
+				<text class="right_text off" wx:else>禁用</text>
+				<image class="right_arrow" src="../../resource/image/right-icon.png"></image>
+			</view>
+		</view>
+    </view>
+
+  	<view style="height:98rpx"></view>
+
+	<view class="bottom-btn" bindtap="enterNewly">+新增店员</view>
+</view>

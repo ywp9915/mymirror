@@ -1,0 +1,28 @@
+<view class="view">
+		<view class="box">
+		    <view class="block">
+				<text class="block_title">手机号：</text>
+				<input type="number" id="mobile" class="block_value" placeholder-class="input" placeholder="请输入预留的手机号码" maxlength="11" data-name="mobile" bindinput="getInput"></input>
+		    </view>
+
+		    <view class="block">
+				<text class="block_title">图形验证码：</text>
+				<input type="number" id="validate_code" placeholder-class="input" class="block_value" placeholder="请输入图形验证码" maxlength="4" bindinput="getInput" data-name="captcha"></input>
+				<!-- <image id="validate_img" src="../../resource/image/logo.png"></image> -->
+				<view class="random_num" bindtap="refreshImg">{{random_num}}</view>
+		    </view>
+
+		    <view class="block">
+				<text class="block_title">短信验证码：</text>
+				<input id="mobile_code" type="number" placeholder-class="input" class="block_value" placeholder="请输入短信验证码" maxlength="6" bindinput="getInput" data-name="code"></input>
+				<view bindtap="getCode" class="get_code_btn {{countDown?'countDown':''}}">{{second}}</view>
+		    </view>
+
+		    <view class="block block_bottom">
+				<text class="block_title">新密码：</text>
+				<input id="psw" type="password" placeholder-class="input" class="block_value" placeholder="请输入6-12位数字或字母密码" maxlength="12" bindinput="getInput" data-name="psw"></input>
+		    </view>
+		 </view>
+
+	    <view class="bottom-btn" bindtap="confirm">确定</view>
+	</view>

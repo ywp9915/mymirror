@@ -1,0 +1,54 @@
+<view class="view">
+		<view class="box">
+		    <view class="block">
+          <text class="block_title">登录账号：</text>
+          <input type="text" placeholder-class="input" class="block_value" placeholder="设置店员的登录账号" data-name="account" maxlength="16" bindinput="getInput"></input>
+		    </view>
+
+		    <view class="block">
+          <text class="block_title">登录密码：</text>
+          <input type="password" placeholder-class="input" class="block_value" placeholder="请输入6-12位数字或字母密码" data-name="psw" maxlength="12" bindinput="getInput"></input>
+		    </view>
+
+		    <view class="block" wx:if="{{operator_role == 'DIANZHANG'}}">
+          <text class="block_title">岗位：</text>
+          <input type="text" placeholder-class="input" class="block_value" placeholder="请选择岗位" value="收银员" disabled="true" />
+        </view>
+        <view class="block" wx:elif="{{operator_role == 'MANAGER'}}">
+          <text class="block_title">岗位：</text>
+          <radio-group class="radio-group block_value" bindchange="radioChange">
+            <label class="radio" wx:for="{{roleItem}}" wx:key="item">
+                <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+          </radio-group>
+        </view>
+        <view class="block" wx:if="{{operator_role == 'DIANZHANG'}}">
+          <text class="block_title">所属商户：</text>
+          <input type="text" placeholder-class="input" class="block_value" value="{{merList[0].mername}}" disabled="true" />
+        </view>
+        <view class="block" wx:elif="{{operator_role == 'MANAGER'}}">
+          <text class="block_title">所属商户：</text>
+          <picker bindchange="bindPickerChange" value="{{merItem}}" range="{{merList}}" range-key="mername" class="block_value">
+            <view class="merpicker">
+              {{merList[merItem].mername}}
+            </view>
+          </picker>
+        </view>
+
+        <view class="block block_bottom">
+          <text class="block_title">二维码凭证：</text>
+          <input type="text" placeholder-class="input" class="block_value scan_input" placeholder="{{scanCode?scanCode:'请扫一扫获取二维码凭证'}}" data-name="scan" maxlength="16" bindinput="getInput" disabled="true"></input>
+          <view class="scan_btn" bindtap="scan">扫一扫</view>
+        </view>
+		 </view>
+
+      <view class="tips">*扫码获取二维码凭证,非必填</view>
+      <!-- <view class="block block_bottom switch_box">
+        <text class="block_title">启用：</text>
+        <view class="block-right">
+          <switch class="switch_btn"/>
+        </view>
+	    </view> -->
+
+      <view class="bottom-btn" bindtap="confirm">确定</view>
+	</view>

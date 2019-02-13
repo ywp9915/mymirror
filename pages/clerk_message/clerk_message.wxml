@@ -1,0 +1,32 @@
+<view class="view">
+	    <view class="block block_bottom switch_box">
+			<text class="block_title">启用：</text>
+			<view class="block-right">
+		      <switch class="switch_btn" checked="{{state==1?'true':false}}" bindchange="switchChange"/>
+		    </view>
+	    </view>
+
+		<view class="box">
+		    <view class="block">
+				<text class="block_title">登录账号：</text>
+				<input type="text" placeholder-class="input" class="block_value" placeholder="设置店员的登录账号" value="{{name}}" disabled="true" maxlength="16"></input>
+		    </view>
+
+		    <view class="block" bindtap="enterChangePsw">
+				<text class="block_title">修改密码：</text>
+				<image class="right_icon" src="../../resource/image/right-icon.png"></image>
+		    </view>
+
+				<view class="block block_bottom" wx:if="{{operator_role == 'MANAGER'}}" bindtap="enterChangeRole">
+				<text class="block_title">选择岗位：</text>
+				<image class="right_icon" src="../../resource/image/right-icon.png"></image>
+				<view class="block_value role_pad" wx:if="{{data.role == 'DIANZHANG'}}">店长</view>
+				<view class="block_value role_pad" wx:elif="{{data.role == 'OPERATOR'}}">收银员</view>
+		    </view>
+		    <view class="block block_bottom" wx:else>
+				<text class="block_title">岗位：</text>
+				<view class="block_value" wx:if="{{data.role == 'DIANZHANG'}}">店长</view>
+				<view class="block_value" wx:elif="{{data.role == 'OPERATOR'}}">收银员</view>
+				</view>
+		 </view>
+	</view>

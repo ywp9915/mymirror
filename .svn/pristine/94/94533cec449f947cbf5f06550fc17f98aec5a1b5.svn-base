@@ -1,0 +1,42 @@
+<view class="filterBox">
+    <view class="filterTerm">
+        <view class="title">收款方式</view>
+        <view class="filterItem">
+            <view data-class="WX" catchtap="setPayClass" class="{{ pay_class == 'WX'? 'active': ''}}">微信</view>
+            <view data-class="ZFB" catchtap="setPayClass" class="{{ pay_class == 'ZFB'? 'active': ''}}">支付宝</view>
+        </view>
+    </view>
+    <view class="filterTerm" wx:if="{{operator_role != 'OPERATOR'}}">
+        <view class="title">收款对象</view>
+        <view class="filterItem">
+            <block wx:for="{{operator_list}}" wx:key="item">
+                <view data-operator="{{item.operator_name}}" catchtap="cashierobj" class="{{ operator_name == item.operator_name? 'active': ''}}">{{item.operator_name}}</view>
+            </block>
+            <view data-operator="0" catchtap="cashierobj" class="{{ operator_name == '0'? 'active': ''}}">静态码收款</view>
+        </view>
+    </view>
+    <view class="filterTerm" style="margin-bottom:100rpx;">
+        <view class="title">收款时间</view>
+        <view class="filterItem">
+            <view id="beginBtn">
+                <picker mode="multiSelector" value="{{sTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{sDateArr}}" data-id="start">
+                    <view class="tui-picker-detail">
+                    {{sDateArr[0][sTime[0]]}}-{{sDateArr[1][sTime[1]]}}-{{sDateArr[2][sTime[2]]}} {{sDateArr[3][sTime[3]]}}:{{sDateArr[4][sTime[4]]}}:{{sDateArr[5][sTime[5]]}}
+                    </view>
+                </picker>
+            </view>
+            <span class="lineTo">—</span>
+            <view id="endBtn">
+                <picker mode="multiSelector" value="{{eTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{eDateArr}}" data-id="end">
+                    <view class="tui-picker-detail" >
+                    {{eDateArr[0][eTime[0]]}}-{{eDateArr[1][eTime[1]]}}-{{eDateArr[2][eTime[2]]}} {{eDateArr[3][eTime[3]]}}:{{eDateArr[4][eTime[4]]}}:{{eDateArr[5][eTime[5]]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="filterBtn">
+        <view class="reset" catchtap="reset">重置</view>
+        <view class="confirm" catchtap="confirm">确定</view>
+    </view>
+</view>

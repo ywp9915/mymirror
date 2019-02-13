@@ -1,0 +1,31 @@
+<view>
+  <view class="block">
+		<view class="label">信用支付</view>
+    <view class="log_status" wx:if="{{is_creditcard}}">开启</view>
+    <view class="log_status" wx:else style="color:rgb(136,136,136);">关闭</view>
+	</view>
+	<view wx:if="{{payLog_list.length!==0}}">
+    <block  wx:for="{{payLog_list}}" wx:key="paylogKey" wx:for-item="paylogItem">
+    <view class="pay_log_list">
+      <view class="pay_log_list_head">
+        <view class="payDate">{{paylogItem.create_time}}</view>
+        <!--<view class="payClassfiy {{paylogItem.look_status}}">{{paylogItem.status}}</view>-->
+      </view>
+      <view class="payLog">
+        <view class="logCon">
+          <view>操作</view>
+          <view>{{paylogItem.action}}</view>
+        </view>
+        <view class="logCon" style="margin-top:24rpx;">
+          <view>描述</view>
+          <view>{{paylogItem.memo}}</view>
+        </view>
+      </view>
+    </view>
+    </block>
+	</view>
+    <view wx:else class='feed'>
+        <image src='{{Feed}}'></image>
+        <view>暂无数据~</view>
+    </view>
+</view>

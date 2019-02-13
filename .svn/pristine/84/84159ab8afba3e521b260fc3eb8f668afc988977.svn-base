@@ -1,0 +1,10 @@
+0000000000000000000000000000000000000000 a3bbfbfe980e07c57a38181b5e2a2388931ab6a4 dincolnlu <amazing1023@hotmail.com> 1519867062 +0800	commit (initial): 收银台text
+a3bbfbfe980e07c57a38181b5e2a2388931ab6a4 b8a63c581afbe426036ebae00431bc26c0402b8e dincolnlu <amazing1023@hotmail.com> 1519867330 +0800	commit: 测试提交
+b8a63c581afbe426036ebae00431bc26c0402b8e a3bbfbfe980e07c57a38181b5e2a2388931ab6a4 dincolnlu <amazing1023@hotmail.com> 1519867405 +0800	reset: moving to HEAD~
+a3bbfbfe980e07c57a38181b5e2a2388931ab6a4 1133bc6976219d25573ee491b2ed55f749ab91bd dincolnlu <amazing1023@hotmail.com> 1519867431 +0800	commit: 测试提交
+1133bc6976219d25573ee491b2ed55f749ab91bd 379f2c992de0846d4ad24c7de828a9b9956a3358 dincolnlu <amazing1023@hotmail.com> 1520213933 +0800	commit: 文字提示弹出框优化
+379f2c992de0846d4ad24c7de828a9b9956a3358 3ad8e05bda50a8f5d4beedbf6d9b54b1b380d67d dincolnlu <amazing1023@hotmail.com> 1520216921 +0800	pull --rebase origin master: checkout 3ad8e05bda50a8f5d4beedbf6d9b54b1b380d67d
+3ad8e05bda50a8f5d4beedbf6d9b54b1b380d67d 66055e8a1ab6006dd2098de9f7ab5603de15984e dincolnlu <amazing1023@hotmail.com> 1520216921 +0800	pull --rebase origin master: 测试提交
+66055e8a1ab6006dd2098de9f7ab5603de15984e f317b136a21b93d0201f555e8d6197c6e8c15051 dincolnlu <amazing1023@hotmail.com> 1520216922 +0800	pull --rebase origin master: 文字提示弹出框优化
+f317b136a21b93d0201f555e8d6197c6e8c15051 f317b136a21b93d0201f555e8d6197c6e8c15051 dincolnlu <amazing1023@hotmail.com> 1520216922 +0800	rebase finished: returning to refs/heads/master
+f317b136a21b93d0201f555e8d6197c6e8c15051 3a0338069c93407919e82dc1e58971f193af65ba dincolnlu <amazing1023@hotmail.com> 1520502651 +0800	commit: 优化，加入支付成功页面

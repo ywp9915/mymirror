@@ -1,0 +1,223 @@
+/* pages/orderList/index.wxss */
+page{
+    word-wrap: break-word;
+    word-break: break-all;
+}
+image{
+    width: 100%;
+    height: 100%;
+}
+.header {
+    position: relative;
+    width: 100%;
+    height: 408rpx;
+    background-image: linear-gradient(0deg, 
+		#ff8046 0%, 
+		#ffa86b 100%);
+}
+.header .filter{
+    position: absolute;
+    top: 28rpx;
+    right: 28rpx;
+    width: 88rpx;
+    color: #fff;
+    font-size: 28rpx;
+    z-index: 2;
+}
+.header .filter image{
+    position: absolute;
+    top: 8rpx;
+    right: 0;
+    width: 24rpx;
+    height: 24rpx;
+}
+.final{
+    text-align: center;
+    color: #fff;
+    padding: 70rpx 0;
+    position: relative;
+}
+.final .money{
+    font-size: 60rpx;
+    font-weight: bold;
+    margin-bottom: 20rpx;
+}
+.final .money span{
+    font-size: 32rpx;
+}
+.final .isCode{
+    position: absolute;
+    right: 28rpx;
+    bottom: 70rpx;
+}
+.sumAmt{
+    overflow: hidden;
+    color: #fff;
+}
+.gatherAmt,.refundAmt{
+    width: 50%;
+    float: left;
+    text-align: center;
+    font-size: 26rpx;
+}
+.refundAmt{
+    width: 49%;
+    border-left: 1px solid #fffdff;
+}
+.dateNum{
+    height: 84rpx;
+    line-height: 84rpx;
+    padding: 0 28rpx;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    font-size: 24rpx;
+    color: #333;
+}
+.dateNum .sumNum{
+    float: right;
+    margin-left: 12rpx;
+    color: #888;
+}
+.gatherList{
+    padding: 0 28rpx 40rpx;
+    background: #fff;
+}
+.gatherList .gather_box{
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 28rpx 0;
+    border-bottom: 1px solid #ddd;
+}
+.gatherList .gatherType {
+    width: 88rpx;
+    height: 88rpx;
+}
+.gatherList .gatherinfo {
+    width: 593rpx;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.gatherinfo .status, .gatherinfo .moneyNum{
+    font-size: 28rpx;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 12rpx;
+    display: inline-block;
+}
+.user, .time{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 26rpx;
+    color: #666;
+}
+.refundHit{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2rpx 8rpx;
+    border: 1px solid #e93b3b;
+    border-radius: 6rpx;
+    color: #e93b3b;
+    font-size:22rpx;
+}
+
+
+.hideBox{
+    /* display: none; */
+}
+
+.order_amt_count, .refund_amt_count{
+    font-size: 38rpx;
+    margin-bottom: 20rpx;
+}
+.isCode label{
+    vertical-align:unset;
+    margin-left: 24rpx;
+    position: relative;
+    font-size: 32rpx;
+    padding-left: 40rpx;
+}
+.isCode .ipt-check{
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+checkbox .wx-checkbox-input{
+    width: 30rpx;
+    height: 30rpx;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+    width: 30rpx;
+    height: 30rpx;
+    line-height: 28rpx;
+    text-align: center;
+    font-size: 30rpx;
+    background: transparent;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+}
+.tabSelect{
+    overflow: hidden;
+    background: #fff;
+}
+.tabSelect .tklb, .tabSelect .jymx{
+    float: left;
+    width: 50%;
+    line-height: 90rpx;
+    text-align: center;
+    position: relative;
+}
+.tabSelect image{
+    width: 26rpx;
+    height: 26rpx;
+    position: absolute;
+    top: 32rpx;
+    left: 112rpx;
+}
+.jymx-body, .tklb-body{
+    padding-left: 46rpx;
+    font-size: 28rpx;
+    color: rgb(102, 102, 102);
+}
+.tabSelect .tabActive .jymx-body,
+.tabSelect .tabActive .tklb-body
+{
+    color: rgb(255, 128, 70);
+}
+.jymx::after{
+    content:'';
+    width: 2rpx;
+    height: 30rpx;
+    background: rgb(238, 238, 238);
+    position: absolute;
+    right: 0;
+    top: 32rpx;
+}
+.refund_con_l{
+    width: 50%;
+}
+.refund_con_r{
+    text-align:right;
+    width: 50%;
+    position: relative;
+}
+.refundTime{
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+.noMoreData{
+    margin:10px auto;
+    text-align:center;
+    color:#666;
+}

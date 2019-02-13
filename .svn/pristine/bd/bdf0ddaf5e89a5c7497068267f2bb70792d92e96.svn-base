@@ -1,0 +1,61 @@
+<view class="page">
+  <view class="block">
+		<navigator url = "payLog/payLog?is_creditcard={{payInfo.is_creditcard}}">
+			<view class='label'>状态</view>
+			<view class="count_status" wx:if="{{payInfo.is_creditcard}}">正常</view>
+			<view class="count_status" wx:else style="color:rgb(136,136,136);">关闭</view>
+			<view class="v_span"><image src="../../resource/image/linkSelect.png"></image></view>
+		</navigator>
+	</view>
+	<view class="searchBox">
+		<view class="c-nav">
+			<picker class="datePicker" mode="date" value="{{bDate}}" bindchange="bDateChange" start="{{sDay}}" end="{{eDate}}">
+				<view>{{bDate}}</view>
+			</picker>
+			<view class="filter">至</view>
+			<picker class="datePicker" mode="date" value="{{eDate}}" bindchange="eDateChange" start="{{sDay}}" end="{{eDate}}">
+				<view>{{eDate}}</view>
+			</picker>
+			<!-- <button id="queryBtn" class="btn">查询</button> -->
+		</view>
+		<view class="total">
+			<view class="payNum">
+				<view class="amtNum">{{payInfo.count.credit_pay_amt}}</view>
+				<view class="payClass">信用支付金额</view>
+			</view>
+			<view class="payPer">
+				<view class="amtPer">{{payInfo.count.credit_payment_ratio}}%</view>
+				<view class="payClass">信用支付占比</view>
+			</view>
+			<view class="payLine"></view>
+		</view>
+	</view>
+	<view wx:if="{{payCount_list.length!==0}}">
+	<block  wx:for="{{payCount_list}}" wx:key="paycountKey" wx:for-item="paycountItem">
+		<view class='payList' wx:if="{{paycountItem.credit_pay_amt !=0 || paycountItem.credit_user_refund_amt !=0}}">
+			<view class="payList_head">
+				<view class="payDate">{{paycountItem.report_date}}</view>
+				<view class="payClassfiy">{{paycountItem.businesscode}}</view>
+			</view>
+			<view class="payInfo">
+				<view class="amount">
+					<view class="amtNum">{{paycountItem.credit_pay_net_amount}}</view>
+					<view class="payClass">信用支付净额</view>
+				</view>
+				<view class="payed">
+					<view class="amtNum">{{paycountItem.credit_pay_amt}}</view>
+					<view class="payClass">信用支付金额</view>
+				</view>
+				<view class="refund">
+					<view class="amtNum">{{paycountItem.credit_user_refund_amt}}</view>
+					<view class="payClass">信用退款金额</view>
+				</view>
+			</view>
+		</view>
+	</block>
+	</view>
+    <view wx:else class='feed'>
+        <image src='{{Feed}}'></image>
+        <view>暂无数据~</view>
+    </view>
+</view>
